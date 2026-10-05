@@ -1,0 +1,16 @@
+#!/bin/sh
+# Sourced by the official Nginx entrypoint before 20-envsubst-on-templates.sh.
+# Keep the proxy path identical whether .env includes a trailing slash or not.
+if [ -z "${API_UPSTREAM:-}" ]; then
+    printf '%s\n' 'Set API_UPSTREAM in the root .env file.' >&2
+    exit 1
+fi
+API_UPSTREAM=$(printf '%s' "$API_UPSTREAM" | sed 's:/*$::')
+case "$API_UPSTREAM" in
+    http://?*|https://?*) ;;
+    *)
+        printf '%s\n' 'API_UPSTREAM must be a full http:// or https:// API URL.' >&2
+        exit 1
+        ;;
+esac
+export API_UPSTREAM

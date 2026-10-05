@@ -1,0 +1,12 @@
+.git
+.local
+.env
+**/node_modules
+web/dist
+web/coverage
+web/.env
+web/.env.local
+**/.env.*
+project-plan/*.md
+project-plan/contracts/aimmentor.openapi.previous.json
+project-plan/contracts/aimmentor.openapi.2026-09-24.json

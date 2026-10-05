@@ -1,0 +1,198 @@
+:root {
+  font-synthesis: none;
+}
+
+body {
+  margin: 0;
+  background: #f5f6f8;
+  color: #202b3b;
+}
+
+.app-header {
+  border-bottom: 1px solid #e0e4e9;
+  background: #fff;
+}
+
+.app-navbar {
+  border-right: 1px solid #e0e4e9;
+  background: #fff;
+}
+
+.app-main {
+  min-height: 100vh;
+  background: #f5f6f8;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  color: #fff;
+  background: #243c59;
+  border-radius: 6px;
+}
+
+.auth-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: #f5f6f8;
+}
+
+.auth-card {
+  width: min(100%, 440px);
+  border: 1px solid #dce1e7;
+}
+
+.page-heading {
+  margin-bottom: 4px;
+}
+
+.app-navbar .mantine-NavLink-root { border-radius: 6px; }
+.app-navbar .mantine-NavLink-root[data-active] { color: #214e7b; background: #edf2f7; font-weight: 600; }
+.sidebar-account { border-top: 1px solid #e0e4e9; padding-top: 16px; }
+.workspace-grid { display: grid; grid-template-columns: minmax(260px, 310px) minmax(0, 1fr); align-items: start; gap: 20px; }
+.workspace-grid > * { min-width: 0; }
+.task-panel { border-top: 3px solid #345a7f; }
+.practice-steps { margin: 0; padding-left: 20px; color: #536174; font-size: 14px; line-height: 1.6; }
+.practice-steps li + li { margin-top: 6px; }
+.chat-empty { min-height: 100%; padding: 24px 12px; }
+.prompt-button { height: auto; min-height: 34px; padding-top: 7px; padding-bottom: 7px; }
+.prompt-button .mantine-Button-label { white-space: normal; text-align: left; }
+.mobile-only, .mobile-nav { display: none; }
+.mentor-text { font-size: 14px; line-height: 1.6; overflow-wrap: anywhere; white-space: normal; }
+.mentor-text > :first-child { margin-top: 0; }
+.mentor-text > :last-child { margin-bottom: 0; }
+.mentor-text p, .mentor-text ul, .mentor-text ol, .mentor-text pre { margin: 0 0 12px; }
+.mentor-text ul, .mentor-text ol { padding-left: 22px; }
+.mentor-text li + li { margin-top: 4px; }
+.mentor-text h1, .mentor-text h2, .mentor-text h3, .mentor-text h4, .mentor-text h5, .mentor-text h6 { font-size: 15px; font-weight: 600; margin: 16px 0 8px; }
+.mentor-text code { font-size: 12px; background: #e9edf2; border-radius: 3px; padding: 1px 4px; }
+.mentor-text pre { padding: 12px; background: #e9edf2; border-radius: 4px; overflow-x: auto; }
+.mentor-text pre code { padding: 0; }
+.mentor-text a { color: #245f96; text-decoration: underline; }
+.mentor-text blockquote { margin: 0 0 12px; padding-left: 12px; border-left: 2px solid #c8d3df; color: #647180; }
+
+.chat-card {
+  height: calc(100dvh - 186px);
+  min-height: 520px;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-list {
+  flex: 1;
+  min-height: 120px;
+  height: 0;
+  overflow-y: auto;
+  padding: 18px 0;
+}
+
+.chat-bubble {
+  max-width: min(92%, 640px);
+  border-radius: 6px;
+  padding: 12px 14px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.chat-bubble-user {
+  margin-left: auto;
+  background: #edf3f9;
+  color: #23364c;
+  border: 1px solid #dce7f1;
+}
+
+.chat-bubble-ai {
+  margin-right: auto;
+  background: #f5f6f8;
+  color: #202b3b;
+  border: 1px solid #e5e8ed;
+}
+
+@media (max-width: 64em) {
+  .workspace-grid { grid-template-columns: 1fr; }
+  .chat-card { height: 640px; }
+}
+
+@media (max-width: 47.99375em) {
+  .auth-page { padding: 16px; }
+  .chat-bubble { max-width: 96%; }
+  .mobile-only { display: flex; }
+  .account-shell { --mobile-nav-height: calc(64px + env(safe-area-inset-bottom, 0px)); }
+  .account-shell.keyboard-open { --mobile-nav-height: 0px; }
+  .account-shell .app-main { padding-top: calc(80px + env(safe-area-inset-top, 0px)); padding-bottom: calc(var(--mobile-nav-height) + 16px); }
+  .account-shell .app-header { padding-top: env(safe-area-inset-top, 0px); height: calc(64px + env(safe-area-inset-top, 0px)); }
+  .mobile-nav {
+    display: flex;
+    position: fixed;
+    z-index: 100;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    min-height: 64px;
+    padding: 0 8px env(safe-area-inset-bottom, 0px);
+    background: #fff;
+    border-top: 1px solid #e0e4e9;
+  }
+  .keyboard-open .mobile-nav { display: none; }
+  .mobile-nav-link {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    min-height: 64px;
+    color: #647180;
+    font-size: 11px;
+    font-weight: 500;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .mobile-nav-link[aria-current="page"] { color: #245f96; font-weight: 600; }
+  .mobile-nav-link:focus-visible { outline: 2px solid #245f96; outline-offset: -4px; border-radius: 6px; }
+  .account-shell-chat .app-header { display: none; }
+  .account-shell-chat .app-main {
+    position: fixed;
+    top: var(--app-top, 0px);
+    left: 0;
+    right: 0;
+    height: var(--app-height, 100dvh);
+    min-height: 0;
+    padding: 0;
+    overflow: hidden;
+    background: #fff;
+  }
+  .account-shell-chat .account-content { height: calc(100% - var(--mobile-nav-height)); }
+  .chat-page { height: 100%; gap: 0; min-height: 0; }
+  .chat-heading {
+    flex-shrink: 0;
+    min-height: calc(56px + env(safe-area-inset-top, 0px));
+    padding: calc(10px + env(safe-area-inset-top, 0px)) 12px 10px;
+    margin: 0;
+    border-bottom: 1px solid #e0e4e9;
+    background: #fff;
+  }
+  .chat-heading h1 { font-size: 18px; }
+  .chat-heading .mantine-Button-root { min-height: 36px; }
+  .chat-subtitle, .chat-history-toolbar { display: none; }
+  .mobile-result { margin: 8px 16px 0; flex-shrink: 0; }
+  .workspace-grid { display: flex; flex: 1; min-height: 0; gap: 0; }
+  .practice-column { display: none; }
+  .chat-page-task .practice-column { display: flex; width: 100%; height: 100%; min-height: 0; gap: 0; }
+  .practice-scroll { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 16px; }
+  .task-screen-footer { flex-shrink: 0; padding: 12px 16px; border-top: 1px solid #e0e4e9; background: #fff; }
+  .task-screen-footer .mantine-Button-root { min-height: 44px; }
+  .chat-card { width: 100%; height: 100%; min-height: 0; padding: 0 !important; border: 0; border-radius: 0; }
+  .chat-page-task .chat-card { display: none; }
+  .chat-list { min-height: 0; padding: 16px; overscroll-behavior: contain; }
+  .chat-composer { flex-shrink: 0; padding: 10px 16px 12px; background: #fff; }
+  .chat-composer > .mantine-Stack-root { padding-top: 0; gap: 8px; }
+  .chat-composer .mantine-Textarea-input { font-size: 16px; }
+  .chat-composer .mantine-SegmentedControl-label { padding: 8px 6px; }
+  .chat-composer .mantine-Button-root { min-height: 40px; }
+  .composer-help { display: none; }
+}

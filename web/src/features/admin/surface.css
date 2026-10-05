@@ -1,0 +1,28 @@
+.surface-shell { min-width: 0; overflow: hidden; }
+.surface-view { position: relative; height: 460px; min-width: 0; margin-top: 12px; touch-action: pan-y; }
+.surface-view.surface-interactive { touch-action: none; }
+.surface-canvas { width: 100%; height: 100%; touch-action: inherit; }
+.surface-loading { position: absolute; inset: 0; display: flex; justify-content: center; align-items: center; gap: 12px; background: #fff; }
+.surface-touch-shield { position: absolute; inset: 0; z-index: 5; touch-action: pan-y; }
+.surface-touch-shield span { position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%); padding: 5px 10px; background: #fffffff2; border: 1px solid #dbe2eb; border-radius: 4px; font-size: 11px; white-space: nowrap; color: #647180; pointer-events: none; }
+.surface-legend { margin-top: 8px; }
+.surface-color-scale { flex: 1 1 90px; max-width: 180px; height: 7px; background: linear-gradient(90deg,#e2edf7,#8ab0d3 35%,#396fa5 70%,#caa052); border-radius: 3px; }
+.surface-selection { margin-top: 12px; padding: 12px; background: #f5f7fa; border-left: 3px solid #b88632; overflow-wrap: anywhere; }
+.surface-selection ul { margin: 8px 0 0; padding-left: 18px; font-size: 12px; color: #647180; }
+.surface-selection li + li { margin-top: 4px; }
+.surface-toolbar .mantine-Button-root { min-height: 36px; }
+.surface-shell:fullscreen, .surface-fullscreen-fallback { display: flex; flex-direction: column; background: #fff; width: 100%; height: 100dvh; padding: 16px; overflow: auto; }
+.surface-fullscreen-fallback { position: fixed; inset: 0; z-index: 1000; border-radius: 0; }
+.surface-shell:fullscreen > *, .surface-fullscreen-fallback > * { flex-shrink: 0; }
+.surface-shell:fullscreen .surface-view, .surface-fullscreen-fallback .surface-view { flex: 1 1 220px; min-height: 180px; }
+.surface-shell:fullscreen .surface-selection, .surface-fullscreen-fallback .surface-selection { max-height: 140px; overflow-y: auto; }
+@media (max-width: 47.99375em) {
+  .surface-shell { padding: 14px; }
+  .surface-view { height: 350px; margin-inline: -6px; }
+  .surface-toolbar { gap: 6px; }
+  .surface-toolbar .mantine-Button-root { min-height: 42px; padding-inline: 10px; }
+  .surface-toolbar .mantine-SegmentedControl-root { min-height: 42px; }
+  .surface-legend { font-size: 11px; }
+  .surface-shell:fullscreen, .surface-fullscreen-fallback { padding: max(12px,env(safe-area-inset-top)) max(12px,env(safe-area-inset-right)) max(12px,env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left)); }
+  .analytics-page .mantine-Tabs-tab { padding-inline: 8px; gap: 5px; }
+}
